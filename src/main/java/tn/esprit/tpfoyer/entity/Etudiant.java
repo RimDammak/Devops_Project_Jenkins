@@ -11,8 +11,6 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-
-
 @NoArgsConstructor
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -30,7 +28,22 @@ public class Etudiant {
     @ManyToMany(mappedBy = "etudiants")
     Set<Reservation> reservations;
 
+    // Constructor with parameters
+    public Etudiant(long idEtudiant, String nomEtudiant, String prenomEtudiant, long cinEtudiant, Date dateNaissance) {
+        this.idEtudiant = idEtudiant;
+        this.nomEtudiant = nomEtudiant;
+        this.prenomEtudiant = prenomEtudiant;
+        this.cinEtudiant = cinEtudiant;
+        this.dateNaissance = dateNaissance;
+    }
+
+    // Corrected getPrenom method
+    public String getPrenom() {
+        return prenomEtudiant; // Return the actual field
+    }
+
+    // Corrected getNom method
+    public String getNom() {
+        return nomEtudiant; // Return the actual field
+    }
 }
-
-
-
